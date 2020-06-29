@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <title>Chi tiết thành phố</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><span>Thành phố <span class="ui header" th:text="${city.name}"></span></span></td>
+        <td><a th:href="@{/}">Xem danh sách thành phố</a></td>
+    </tr>
+    <tr>
+        <td><span>Tên: <span th:text="${city.name}"></span></span></td>
+    </tr>
+    <tr>
+        <td><span>Quốc gia: <span th:text="${city.city}"></span></span></td>
+    </tr>
+    <tr>
+        <td><span>Diện tích: <span th:text="${city.area}"></span></span></td>
+    </tr>
+    <tr>
+        <td><span>Dân số: <span th:text="${city.population}"></span></span></td>
+    </tr>
+    <tr>
+        <td><span>GDP: <span th:text="${city.gpa}"></span></span></td>
+    </tr>
+    <tr>
+        <td><span>Giới thiệu: <span th:text="${city.description}"></span></span></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><a th:href="@{/city/__${city.id}__/edit}">Chỉnh sửa</a> | <a th:href="@{/city/__${city.id}__/delete}" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a></td>
+    </tr>
+</table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</html>

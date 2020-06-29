@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <title>Thêm mới</title>
+</head>
+<body>
+
+<div class="ui container">
+    <h1 class="ui header-panel">Thêm thành phố</h1>
+    <form class="ui form" method="post" th:object="${currentCity}" th:action="@{/city/create-and-edit}" onsubmit="return validate();">
+        <input type="hidden" th:field="*{id}">
+        <div class="field">
+            <label>Tên</label>
+            <input type="text" name="name" id="name" th:field="*{name}">
+        </div>
+        <div id="nameError" style="color: red"></div>
+        <div class="field">
+            <select class="ui search dropdown" th:field="*{city}" name="city">
+                <option value="Việt Nam">Việt Nam</option>
+                <option value="Trung Quốc">Trung Quốc</option>
+                <option value="Mỹ">Mỹ</option>
+            </select>
+        </div>
+        <div class="field">
+            <label>Diện tích</label>
+            <input type="text" name="area" id="area" th:field="*{area}">
+        </div>
+        <div id="areaError" style="color: red"></div>
+        <div class="field">
+            <label>Dân số</label>
+            <input type="text" name="population" id="population" th:field="*{population}">
+        </div>
+        <div id="populationError" style="color: red"></div>
+        <div class="field">
+            <label>GDP</label>
+            <input type="text" name="gdp" id="gdp" th:field="*{gpa}">
+        </div>
+        <div class="gpdError" style="color: red"></div>
+        <div class="field">
+            <label>Giới thiệu</label>
+            <textarea name="desctiption" cols="30" rows="10" th:field="*{description}"></textarea>
+        </div>
+        <div class="field">
+            <button class="ui button" type="submit">Nhập thành phố</button>
+        </div>
+    </form>
+            <form th:action="@{/}">
+                <button class="ui button" type="submit">Thoát</button>
+            </form>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script th:src="@{/validateForm.js}"></script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <title>Index</title>
+</head>
+<body>
+<a th:href="@{/city/create}">Thêm mới</a>
+<h1>Danh sách thành phố</h1>
+<table class="ui celled table">
+    <tr>
+        <td>#</td>
+        <td>Thành phố</td>
+        <td>Quốc gia</td>
+        <td colspan="2"></td>
+    </tr>
+    <th:block th:each="c : ${cities}">
+        <tr>
+            <td th:text="${c.id}"></td>
+            <td><a th:href="@{/city/__${c.id}__/detail}" th:text="${c.name}"></a></td>
+            <td th:text="${c.city}"></td>
+            <td><a th:href="@{/city/__${c.id}__/edit}">Chỉnh sửa</a></td>
+            <td><a th:href="@{/city/__${c.id}__/delete}" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</html>
